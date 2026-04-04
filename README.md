@@ -207,9 +207,12 @@ Se grafica la evolución del pico espectral a lo largo de los diferentes segment
 <img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen5.png" />
 <img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen6.png" />
 <img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen7.png" />
-<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen8.png" />
-<img width="500" height="200" alt="image" src="https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen9.png" />
+<img width="500" height="200" alt="image" src="https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen8.png" />
+<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen9.png" />
+
 ## CONCLUSIONES
+
+
 El análisis espectral de la señal electromiográfica mediante la Transformada Rápida de Fourier (FFT) permite identificar la distribución de energía en función de la frecuencia, constituyéndose como una herramienta útil para el estudio de la actividad muscular. A través de este enfoque, es posible analizar cambios en el contenido frecuencial de la señal asociados a fenómenos fisiológicos como la fatiga muscular.
 
 En los resultados obtenidos, se evidenció una tendencia general a la disminución de la energía en altas frecuencias en los últimos segmentos de la señal, lo cual es consistente con el comportamiento esperado durante un esfuerzo sostenido, donde se presenta una reducción en la velocidad de conducción de las fibras musculares y en la participación de fibras de contracción rápida.
