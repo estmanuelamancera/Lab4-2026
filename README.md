@@ -34,7 +34,8 @@ Finalmente, los resultados obtenidos son interpretados para destacar la utilidad
 
 
 # DIAGRAMA
-<img width="2000" height="5000" alt="image" src="https://github.com/estmanuelamancera/Lab3-2026/blob/main/INICIO%20(1).png" />
+<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab4-2026/blob/main/Diagrama1.png" />
+<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab4-2026/blob/main/Diagrama2.png" />
 
 # CÓDIGO
 ## Conectar Google Drive
