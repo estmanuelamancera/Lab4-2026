@@ -199,25 +199,15 @@ plt.show()
 ```
 Se grafica la evolución del pico espectral a lo largo de los diferentes segmentos. Este análisis permite observar posibles desplazamientos en la frecuencia dominante de la señal, los cuales pueden estar relacionados con el esfuerzo sostenido y la fatiga muscular.
 # GRAFICAS
-<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab3-2026/blob/main/hombrea1.png" />
-<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab3-2026/blob/main/hombrea2.png" />
-<img width="1131" height="843" alt="image" src="https://github.com/user-attachments/assets/def7c341-1fa8-4c92-96e5-d3823221fa9b" />
-<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab3-2026/blob/main/hombreb1.png" />
-<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab3-2026/blob/main/hombreb2.png" />
-<img width="1169" height="823" alt="image" src="https://github.com/user-attachments/assets/82a5f521-22da-4591-9c6c-6fc659a0252d" />
-<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab3-2026/blob/main/hombrec1.png" />
-<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab3-2026/blob/main/hombrec2.png" />
-<img width="1142" height="826" alt="image" src="https://github.com/user-attachments/assets/0a13c6e9-2119-48e2-a1e8-bb83cbb0519a" />
-<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab3-2026/blob/main/mujera1.png" />
-<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab3-2026/blob/main/mujera2.png" />
-<img width="1298" height="827" alt="image" src="https://github.com/user-attachments/assets/65d007f1-a2f1-4f76-894e-31f4cb7e9fcd" />
-<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab3-2026/blob/main/mujerb1.png" />
-<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab3-2026/blob/main/mujerb2.png" />
-<img width="1114" height="807" alt="image" src="https://github.com/user-attachments/assets/1b51eb93-8360-453e-bebd-60f18c3e35d6" />
-<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab3-2026/blob/main/mujerc1.png" />
-<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab3-2026/blob/main/mujerc2.png" />
-<img width="1078" height="807" alt="image" src="https://github.com/user-attachments/assets/f2161cfb-5222-4a0a-8b00-b6a4ba47d0c0" />
 
-
+<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen1.pngg" />
+<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen2.pngg" />
+<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen3.pngg" />
+<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen4.pngg" />
+<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen5.pngg" />
+<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen6.pngg" />
+<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen7.pngg" />
+<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen8.pngg" />
+<img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen9.pngg" />
 ## TABLA RESULTADOS PARTE A
 <img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab3-2026/blob/main/tabla1.png" />
