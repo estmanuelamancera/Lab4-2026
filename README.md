@@ -279,7 +279,9 @@ plt.show()
 
 ```
 
+#### FILTRO SEÑAL
 
+![FILTRO SEÑAL]()
 
 
 
