@@ -218,7 +218,66 @@ En esta fase se realizó la adquisición de la señal electromiográfica (EMG) p
 
 #### SEÑAL CAPTURADA
 
-![Señal capturada]()
+![Señal capturada](https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen_2026-04-12_205056906.png?raw=true)
+
+Luego de la captura de la señal se filtro, se realizaron los calculos del orden manualmente para luego programar el filtro.
+
+![FILTRO]()
+
+#### PROGRAMACIÓN
+
+```python
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.signal import butter, filtfilt
+
+try:
+    df = pd.read_csv('VALEMG.csv')
+    emg_raw = df.iloc[:, 1].values  # Cambia el índice si tu EMG está en otra columna
+    # fs = 1 / (df.iloc[1, 0] - df.iloc[0, 0]) # Intenta calcular fs automáticamente
+    fs = 2500 
+except:
+    print("Error al cargar. Asegúrate de subir el archivo al panel izquierdo de Colab.")
+
+# 2. Diseño del Filtro (especificaciones)
+low_cut = 20    # Hz
+high_cut = 450  # Hz
+nyquist = 0.5 * fs
+low = low_cut / nyquist
+high = high_cut / nyquist
+
+# Creamos el filtro de orden 2 (calculado)
+b, a = butter(2, [low, high], btype='band')
+
+# Aplicamos el filtro (filtfilt evita el desfase temporal)
+emg_filtered = filtfilt(b, a, emg_raw)
+
+# 3. Visualización
+plt.figure(figsize=(15, 8))
+
+# Subplot 1: Señal Original
+plt.subplot(2, 1, 1)
+plt.plot(emg_raw, color='gray', alpha=0.5, label='EMG Raw (Cruda)')
+plt.title('Señal EMG Original (Antes del Filtro)')
+plt.ylabel('Voltaje (mV)')
+plt.legend()
+plt.grid(True)
+
+# Subplot 2: Señal Filtrada
+plt.subplot(2, 1, 2)
+plt.plot(emg_filtered, color='blue', label='EMG Filtrada (20-450 Hz)')
+plt.title('Señal EMG después del Filtro Butterworth (Orden 2)')
+plt.xlabel('Muestras')
+plt.ylabel('Voltaje (mV)')
+plt.legend()
+plt.grid(True)
+
+plt.tight_layout()
+plt.show()
+
+```
 
 
 
