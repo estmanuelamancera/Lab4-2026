@@ -211,6 +211,22 @@ Se grafica la evolución del pico espectral a lo largo de los diferentes segment
 <img width="500" height="200" alt="image" src="https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen8.png" />
 <img width="800" height="700" alt="image" src="https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen9.png" />
 
+
+### PARTE B
+
+En esta fase se realizó la adquisición de la señal electromiográfica (EMG) proveniente de un sujeto voluntario sano, colocando los electrodos sobre un grupo muscular específico (como el bíceps o antebrazo). Durante el registro, el sujeto efectuó contracciones repetidas hasta la aparición de la fatiga muscular, permitiendo analizar cómo varían las componentes frecuenciales de la señal en condiciones reales
+
+#### SEÑAL CAPTURADA
+
+![Señal capturada]()
+
+
+
+
+
+
+
+
 ## CONCLUSIONES
 
 
