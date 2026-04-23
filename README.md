@@ -504,7 +504,31 @@ Para analizar el contenido frecuencial de la señal electromiográfica (EMG), se
 
 Posteriormente, se calculó la FFT de cada contracción, obteniendo así su representación en el dominio de la frecuencia. A partir de este resultado, se extrajo el espectro de magnitud considerando únicamente las frecuencias positivas, lo que permitió analizar la distribución de energía de la señal EMG en función de la frecuencia.
 Este procedimiento se repitió para todas las contracciones detectadas, permitiendo un análisis individual de cada evento muscular y facilitando la comparación entre diferentes momentos del esfuerzo.
+```python
+def calcular_fft(signal, fs):
+    N = len(signal)
 
+    # Eliminar componente DC
+    signal = signal - np.mean(signal)
+
+    # Aplicar ventana de Hamming
+    ventana = np.hamming(N)
+    signal = signal * ventana
+
+    # FFT
+    X = np.fft.fft(signal)
+    f = np.fft.fftfreq(N, d=1/fs)
+
+    # Frecuencias positivas
+    mask = f >= 0
+    f = f[mask]
+    X = X[mask]
+
+    # Magnitud normalizada
+    mag = (2 / N) * np.abs(X)
+
+    return f, mag
+```
 <img width="1343" height="1634" alt="image" src="https://github.com/user-attachments/assets/8ad25bbf-a159-4e57-a555-f863e71d9168" />
 
 <img width="1348" height="1682" alt="image" src="https://github.com/user-attachments/assets/d87c8ee2-a364-4eb4-a18f-d16ef58f3dd8" />
