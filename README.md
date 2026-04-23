@@ -283,10 +283,60 @@ plt.show()
 
 ![FILTRO SEÑAL](https://github.com/estmanuelamancera/Lab4-2026/blob/main/image.png?raw=true)
 
+### SEGMENTACION Y FRECUENCIAS
+La señal de electromiografía fue segmentada en un total de 35 contracciones musculares. Debido a la naturaleza de la muestra, se optó por analizar tres momentos clave que representan la evolución temporal del ejercicio: la contracción inicial, la intermedia y la final. Para cada uno de estos segmentos, se realizó una caracterización espectral mediante el cálculo de la frecuencia media y la frecuencia mediana, permitiendo así identificar posibles desplazamientos en el espectro asociados a la fatiga muscular.
 
+### PROGRAMACIÓN
 
+```python
 
+import matplotlib.pyplot as plt
+import numpy as np
 
+# 1. Asegurar la detección de los picos (Ajuste de sensibilidad)
+# Hacemos esto para que el detector encuentre las 35 contracciones
+emg_abs = np.abs(emg_filtered)
+ventana_suave = int(0.3 * 2500) 
+envolvente = np.convolve(emg_abs, np.ones(ventana_suave)/ventana_suave, mode='same')
+
+from scipy.signal import find_peaks
+# Bajamos la altura para asegurarnos de captar las 35
+indices_picos, _ = find_peaks(envolvente, distance=2500*0.8, height=np.mean(envolvente)*0.4)
+
+# 2. Definir los objetivos (Contracción 1, 11 y 34)
+# Usamos try/except para que si solo encuentra 4, te grafique las que pueda sin romperse
+puntos_interes = [0, 10, 33] 
+nombres = ['Contracción 1', 'Contracción 11', 'Contracción 34']
+colores = ['#1f77b4', '#ff7f0e', '#d62728']
+fs = 2500
+
+# 3. Graficar los segmentos en el dominio del tiempo
+fig, axes = plt.subplots(3, 1, figsize=(12, 10), sharex=False)
+
+for i, idx_target in enumerate(puntos_interes):
+    if idx_target < len(indices_picos):
+        p = indices_picos[idx_target]
+        # Tomamos un rango de 1 segundo alrededor del pico (0.5s antes y 0.5s después)
+        inicio, fin = max(0, p - 1250), min(len(emg_filtered), p + 1250)
+        segmento = emg_filtered[inicio:fin]
+        
+        # Crear eje de tiempo para ese segmento específico
+        t_seg = np.arange(len(segmento)) / fs
+        
+        axes[i].plot(t_seg, segmento, color=colores[i], lw=1)
+        axes[i].set_title(f"{nombres[i]} (Centro en t = {p/fs:.2f} s)", fontweight='bold')
+        axes[i].set_ylabel('Amplitud (mV)')
+        axes[i].grid(True, alpha=0.3)
+    else:
+        axes[i].text(0.5, 0.5, f'Contracción {idx_target+1} no detectada\n(Ajusta la sensibilidad)', 
+                     ha='center', va='center', fontsize=12, color='red')
+
+axes[2].set_xlabel('Tiempo del segmento (s)')
+plt.tight_layout()
+plt.show()
+
+```
+![Segmentacion]()
 
 ## CONCLUSIONES
 
