@@ -540,9 +540,25 @@ A partir del cálculo de las frecuencias características (frecuencia media, fre
 En las contracciones intermedias (4–10), se evidencia una mayor dispersión en los valores, destacándose incrementos en la frecuencia media (hasta aproximadamente 60–63 Hz) y en la frecuencia mediana (superando los 50 Hz en algunos casos), así como picos espectrales más altos, alcanzando valores cercanos a 60 Hz. Este comportamiento sugiere una mayor variabilidad en la activación muscular, posiblemente asociada a cambios en la intensidad de la contracción o en el reclutamiento de unidades motoras.En las últimas contracciones (14–16), las frecuencias características tienden a estabilizarse nuevamente en rangos cercanos a los iniciales, con frecuencias medias entre 42 y 54 Hz, medianas entre 34 y 44 Hz y picos espectrales entre 31 y 40 Hz.
 
 Al analizar la evolución global de los parámetros, no se observa una disminución progresiva y sostenida de las frecuencias características, lo cual sería indicativo de fatiga muscular. En cambio, se evidencia un comportamiento variable, con aumentos y disminuciones a lo largo del tiempo, lo que sugiere que el esfuerzo muscular no fue completamente constante o que existieron cambios en la dinámica de activación neuromuscular durante el registro.
+### Fatiga muscular 
+La fatiga muscular, en el contexto del análisis espectral de señales EMG, se asocia típicamente con un desplazamiento del contenido frecuencial hacia bajas frecuencias, evidenciado por una disminución progresiva de la frecuencia media, la frecuencia mediana y el pico espectral a lo largo del tiempo. Este fenómeno está relacionado con la reducción en la velocidad de conducción de las fibras musculares y cambios en la sincronización de las unidades motoras durante un esfuerzo sostenido. Sin embargo, a partir de los resultados obtenidos en este análisis, no se observa una tendencia clara y sostenida de disminución en las frecuencias características. Por el contrario, los valores de frecuencia media, mediana y pico espectral presentan variaciones a lo largo de las contracciones, incluyendo incrementos en ciertos segmentos intermedios y finales.
 
+Este comportamiento sugiere que la señal analizada no corresponde a un esfuerzo muscular completamente constante o controlado, lo cual puede dificultar la identificación de patrones clásicos de fatiga. Factores como variaciones en la intensidad de la contracción, pausas involuntarias o cambios en el reclutamiento de unidades motoras pueden influir en la distribución espectral de la señal. En consecuencia, aunque la metodología empleada es adecuada para la detección de fatiga muscular, en este caso particular no se evidencia de forma concluyente un proceso de fatiga, sino más bien una variabilidad en la activación neuromuscular durante el registro.
+### Cálculo del Desplazamiento del Pico Espectral
+El desplazamiento del pico espectral hace referencia al cambio en la frecuencia donde se concentra la mayor energía del espectro de la señal. En señales EMG, este parámetro es comúnmente utilizado como indicador de fatiga muscular, ya que bajo condiciones de esfuerzo sostenido suele presentarse un desplazamiento hacia frecuencias más bajas debido a la reducción de las componentes de alta frecuencia.
+
+En el aplicativo desarrollado en Python, se implementó el siguiente código para calcular el desplazamiento del pico espectral:
+```python
+if len(picos) >= 2:
+    desplazamiento = picos[-1] - picos[0]
+    print(f"Desplazamiento del pico espectral: {desplazamiento:.2f} Hz")
+else:
+    print("No hay suficientes contracciones para calcular el desplazamiento.")
+```
 <img width="1348" height="1682" alt="image" src="https://github.com/user-attachments/assets/d87c8ee2-a364-4eb4-a18f-d16ef58f3dd8" />
+A diferencia del comportamiento esperado en presencia de fatiga muscular, donde el pico espectral tiende a desplazarse hacia frecuencias más bajas, el resultado obtenido no evidencia una disminución progresiva de la frecuencia dominante. Aunque se observa un cambio en la frecuencia pico de 11.05 Hz, este no sigue una tendencia claramente decreciente, sino que forma parte de la variabilidad observada a lo largo de las contracciones. Este comportamiento puede estar asociado a cambios en la intensidad del esfuerzo, variaciones en el reclutamiento de unidades motoras o a la falta de un esfuerzo muscular constante durante la adquisición de la señal.
 
+En consecuencia, aunque el desplazamiento del pico espectral es una herramienta útil para el análisis de fatiga muscular, en este caso no permite concluir de manera contundente la presencia de fatiga, sino que refleja principalmente la variabilidad en la activación muscular.
 
 
 ## CONCLUSIONES
