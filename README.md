@@ -499,6 +499,11 @@ Sincronización de Unidades Motoras: Como mecanismo de defensa, el sistema nervi
 En esta sección se realizó el análisis en el dominio de la frecuencia de la señal electromiográfica (EMG) mediante la aplicación de la Transformada Rápida de Fourier (FFT) a cada una de las contracciones musculares previamente detectadas. Para ello, la señal fue preprocesada mediante filtrado notch y pasabanda con el fin de eliminar ruido e interferencias, y posteriormente se segmentó utilizando la envolvente RMS para aislar los periodos de actividad muscular.
 
 A partir de estos segmentos, se calculó el espectro de amplitud (frecuencia vs. magnitud), lo que permitió caracterizar la distribución de energía en el dominio frecuencial. Este análisis se utilizó para comparar las primeras y últimas contracciones, evaluar posibles cambios asociados al esfuerzo sostenido y estudiar el comportamiento del pico espectral como indicador de la dinámica muscular.
+### Transformada Rápida de Fourier (FFT) a cada contracción 
+Para analizar el contenido frecuencial de la señal electromiográfica (EMG), se aplicó la Transformada Rápida de Fourier (FFT) a cada una de las contracciones musculares previamente segmentadas. Antes de realizar la transformada, cada segmento fue centrado eliminando su componente de corriente directa (DC) y se le aplicó una ventana de Hamming con el fin de reducir el efecto de fuga espectral.
+
+Posteriormente, se calculó la FFT de cada contracción, obteniendo así su representación en el dominio de la frecuencia. A partir de este resultado, se extrajo el espectro de magnitud considerando únicamente las frecuencias positivas, lo que permitió analizar la distribución de energía de la señal EMG en función de la frecuencia.
+Este procedimiento se repitió para todas las contracciones detectadas, permitiendo un análisis individual de cada evento muscular y facilitando la comparación entre diferentes momentos del esfuerzo.
 
 <img width="1343" height="1634" alt="image" src="https://github.com/user-attachments/assets/8ad25bbf-a159-4e57-a555-f863e71d9168" />
 
