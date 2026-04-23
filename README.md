@@ -529,7 +529,17 @@ def calcular_fft(signal, fs):
 
     return f, mag
 ```
+La función calcular_fft permite obtener el espectro de amplitud de cada contracción de la señal EMG en el dominio de la frecuencia. Inicialmente, se elimina la componente DC restando el valor promedio de la señal. Luego, se aplica una ventana de Hamming para reducir la fuga espectral. Posteriormente, se calcula la Transformada Rápida de Fourier (FFT), obteniendo la representación de la señal en frecuencia. Se seleccionan únicamente las frecuencias positivas y se calcula la magnitud normalizada del espectro.
+Finalmente, la función retorna el vector de frecuencias y su correspondiente magnitud, permitiendo analizar la distribución de energía de la señal EMG.
+### Gráficas del Espectro de Amplitud
+A continuación se presentarán las tres primeras y últimas gráficas del espectro de amplitud en función de la frecuencia, para realizar su respectivo análisis y comparación.
 <img width="1343" height="1634" alt="image" src="https://github.com/user-attachments/assets/8ad25bbf-a159-4e57-a555-f863e71d9168" />
+#### Analisis
+A partir del cálculo de las frecuencias características (frecuencia media, frecuencia mediana y pico espectral) para cada contracción, se observa que la señal EMG presenta variabilidad en su contenido frecuencial a lo largo del tiempo. En las primeras contracciones (1–3), la frecuencia media se mantiene alrededor de 40–47 Hz, la frecuencia mediana entre 30 y 35 Hz y el pico espectral entre 22 y 27 Hz. Esto indica que la energía de la señal está concentrada principalmente en bajas y medias frecuencias durante el inicio del esfuerzo muscular.
+
+En las contracciones intermedias (4–10), se evidencia una mayor dispersión en los valores, destacándose incrementos en la frecuencia media (hasta aproximadamente 60–63 Hz) y en la frecuencia mediana (superando los 50 Hz en algunos casos), así como picos espectrales más altos, alcanzando valores cercanos a 60 Hz. Este comportamiento sugiere una mayor variabilidad en la activación muscular, posiblemente asociada a cambios en la intensidad de la contracción o en el reclutamiento de unidades motoras.En las últimas contracciones (14–16), las frecuencias características tienden a estabilizarse nuevamente en rangos cercanos a los iniciales, con frecuencias medias entre 42 y 54 Hz, medianas entre 34 y 44 Hz y picos espectrales entre 31 y 40 Hz.
+
+Al analizar la evolución global de los parámetros, no se observa una disminución progresiva y sostenida de las frecuencias características, lo cual sería indicativo de fatiga muscular. En cambio, se evidencia un comportamiento variable, con aumentos y disminuciones a lo largo del tiempo, lo que sugiere que el esfuerzo muscular no fue completamente constante o que existieron cambios en la dinámica de activación neuromuscular durante el registro.
 
 <img width="1348" height="1682" alt="image" src="https://github.com/user-attachments/assets/d87c8ee2-a364-4eb4-a18f-d16ef58f3dd8" />
 
