@@ -571,4 +571,13 @@ En los resultados obtenidos, se evidenció una tendencia general a la disminuci�
 Sin embargo, el análisis del pico espectral mostró una frecuencia dominante constante alrededor de 60 Hz, la cual no corresponde a la actividad muscular, sino a la interferencia de la red eléctrica. Este resultado pone en evidencia la importancia del preprocesamiento de la señal, especialmente la aplicación de filtros adecuados, para eliminar componentes no fisiológicos que pueden afectar la interpretación del espectro.
 
 En conclusión, el análisis espectral mediante FFT es una herramienta valiosa en electromiografía, ya que permite extraer información relevante sobre el estado funcional del músculo. No obstante, su correcta aplicación requiere un adecuado tratamiento de la señal para garantizar que los resultados reflejen fielmente la actividad fisiológica y no estén influenciados por fuentes externas de ruido.
+El análisis espectral de la señal electromiográfica (EMG) mediante la Transformada Rápida de Fourier (FFT) permitió caracterizar la distribución de energía en el dominio de la frecuencia para cada contracción muscular. Se observó que la mayor concentración de energía se encuentra en el rango de 20 a 100 Hz, lo cual es consistente con el comportamiento fisiológico típico de este tipo de señales.
+
+La segmentación de la señal a través del cálculo de la envolvente RMS permitió identificar de manera adecuada las contracciones musculares, facilitando el análisis individual de cada evento y la comparación entre diferentes momentos del esfuerzo.
+
+A partir del cálculo de las frecuencias características (frecuencia media, mediana y pico espectral), se evidenció una variabilidad en el contenido frecuencial a lo largo de las contracciones. Sin embargo, no se observó una disminución progresiva y sostenida de estos parámetros, lo cual indica que no se presenta un patrón claro de fatiga muscular en la señal analizada.
+
+El análisis del desplazamiento del pico espectral mostró un cambio total de 11.05 Hz; no obstante, este desplazamiento no siguió una tendencia decreciente, sino que reflejó variaciones en la activación muscular. Esto sugiere que el esfuerzo no fue completamente constante o que existieron cambios en el reclutamiento de unidades motoras durante el registro.
+
+En conclusión, el análisis espectral constituye una herramienta útil para evaluar la dinámica de la actividad muscular y detectar posibles cambios asociados a la fatiga. Sin embargo, su efectividad depende de la estabilidad del esfuerzo realizado, por lo que se recomienda, para futuros estudios, trabajar bajo condiciones experimentales más controladas que permitan evidenciar de manera más clara los efectos de la fatiga muscular.
 
