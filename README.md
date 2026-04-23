@@ -233,7 +233,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import butter, filtfilt
 
-try:
+try: I
     df = pd.read_csv('VALEMG.csv')
     emg_raw = df.iloc[:, 1].values  # Cambia el índice si tu EMG está en otra columna
     # fs = 1 / (df.iloc[1, 0] - df.iloc[0, 0]) # Intenta calcular fs automáticamente
@@ -496,6 +496,10 @@ Falla de Fibras Rápidas (Tipo II): Al inicio y mitad del ejercicio (61.0 Hz), e
 
 Sincronización de Unidades Motoras: Como mecanismo de defensa, el sistema nervioso sincroniza los disparos de las fibras restantes para intentar sostener la tensión. Aunque esto mantiene la fuerza momentáneamente, reduce la variabilidad de la señal y concentra la energía en las bandas de frecuencia más bajas.
 ## PARTE C
+En esta sección se realizó el análisis en el dominio de la frecuencia de la señal electromiográfica (EMG) mediante la aplicación de la Transformada Rápida de Fourier (FFT) a cada una de las contracciones musculares previamente detectadas. Para ello, la señal fue preprocesada mediante filtrado notch y pasabanda con el fin de eliminar ruido e interferencias, y posteriormente se segmentó utilizando la envolvente RMS para aislar los periodos de actividad muscular.
+
+A partir de estos segmentos, se calculó el espectro de amplitud (frecuencia vs. magnitud), lo que permitió caracterizar la distribución de energía en el dominio frecuencial. Este análisis se utilizó para comparar las primeras y últimas contracciones, evaluar posibles cambios asociados al esfuerzo sostenido y estudiar el comportamiento del pico espectral como indicador de la dinámica muscular.
+
 <img width="1343" height="1634" alt="image" src="https://github.com/user-attachments/assets/8ad25bbf-a159-4e57-a555-f863e71d9168" />
 
 <img width="1348" height="1682" alt="image" src="https://github.com/user-attachments/assets/d87c8ee2-a364-4eb4-a18f-d16ef58f3dd8" />
