@@ -336,7 +336,64 @@ plt.tight_layout()
 plt.show()
 
 ```
+### PARTES DE LA SEÑAL 
 ![Segmentacion](https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen_2026-04-22_230622625.png?raw=true)
+
+### MEDIA Y MEDIANA 
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.signal import welch
+
+# 1. Usamos los mismos índices que definimos para los subplots
+indices_a_graficar = [0, total_picos // 2, total_picos - 1]
+etiquetas = ['Inicio (C1)', 'Mitad (C18)', 'Final (C35)']
+colores_puntos = ['#1f77b4', '#ff7f0e', '#d62728']
+
+f_meds_resumen = []
+f_medias_resumen = []
+
+# 2. Calculamos los datos solo para esos 3 momentos
+for idx in indices_a_graficar:
+    p = indices_picos[idx]
+    inicio, fin = max(0, p - 1000), min(len(emg_filtered), p + 1000)
+    segmento = emg_filtered[inicio:fin]
+    
+    f_w, psd = welch(segmento, fs=2500, nperseg=1024)
+    
+    # Frecuencia Mediana
+    suma_acum = np.cumsum(psd)
+    f_mediana = f_w[np.where(suma_acum >= suma_acum[-1] / 2)[0][0]]
+    
+    # Frecuencia Media
+    f_media = np.sum(f_w * psd) / np.sum(psd)
+    
+    f_meds_resumen.append(f_mediana)
+    f_medias_resumen.append(f_media)
+
+# 3. Graficar el resumen de los 3 momentos
+plt.figure(figsize=(8, 5))
+
+# Graficamos líneas que unan solo los 3 puntos
+plt.plot(etiquetas, f_meds_resumen, 'o-', label='Frecuencia Mediana', color='blue', markersize=10)
+plt.plot(etiquetas, f_medias_resumen, 's-', label='Frecuencia Media', color='red', markersize=10)
+
+# Añadir etiquetas de valor sobre los puntos para mayor claridad
+for i, val in enumerate(f_meds_resumen):
+    plt.text(i, val + 1, f'{val:.1f} Hz', ha='center', color='blue', fontweight='bold')
+
+plt.title('Tendencia de Frecuencias en Momentos Clave', fontweight='bold')
+plt.ylabel('Frecuencia (Hz)')
+plt.ylim(min(f_meds_resumen + f_medias_resumen) - 10, max(f_meds_resumen + f_medias_resumen) + 10)
+plt.grid(True, alpha=0.2)
+plt.legend()
+plt.show()
+
+```
+### RESULTADO
+![RESULTADO MEDIA Y MEDIANA]()
+
 
 ## CONCLUSIONES
 
