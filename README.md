@@ -222,7 +222,7 @@ En esta fase se realizó la adquisición de la señal electromiográfica (EMG) p
 
 Luego de la captura de la señal se filtro, se realizaron los calculos del orden manualmente para luego programar el filtro.
 
-![FILTRO]()
+![FILTRO](https://github.com/estmanuelamancera/Lab4-2026/blob/main/WhatsApp%20Image%202026-04-22%20at%208.47.53%20PM.jpeg?raw=true)
 
 #### PROGRAMACIÓN
 
