@@ -281,7 +281,7 @@ plt.show()
 
 #### FILTRO SEÑAL
 
-![FILTRO SEÑAL]()
+![FILTRO SEÑAL](https://github.com/estmanuelamancera/Lab4-2026/blob/main/image.png?raw=true)
 
 
 
