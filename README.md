@@ -392,9 +392,101 @@ plt.show()
 
 ```
 ### RESULTADO
-![RESULTADO MEDIA Y MEDIANA]()
+![RESULTADO MEDIA Y MEDIANA](https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen_2026-04-22_231023635.png?raw=true)
 
+### FRECUENCIAS
 
+```python
+
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.signal import welch
+
+# 1. Selección dinámica a prueba de errores
+total_picos = len(indices_picos)
+
+if total_picos < 3:
+    print(f"¡OJO! Solo se detectaron {total_picos} contracciones en la señal.")
+    # Selecciona las pocas que haya encontrado
+    indices_a_graficar = list(range(total_picos))
+else:
+    # Selecciona dinámicamente la inicial, la del medio y la final de las que existan
+    idx_medio = total_picos // 2
+    idx_final = total_picos - 1
+    indices_a_graficar = [0, idx_medio, idx_final]
+
+nombres = ['Contracción Inicial', 'Contracción Media', 'Contracción Final']
+colores = ['#1f77b4', '#ff7f0e', '#d62728']
+fs = 2500  
+
+# 2. Crear SIEMPRE la figura asegurando la estructura 2D (Filas x 2 Columnas)
+filas = max(len(indices_a_graficar), 1)
+fig, axes = plt.subplots(filas, 2, figsize=(15, 4 * filas), sharex='col')
+
+# Forzar a que axes sea siempre una matriz bidimensional (incluso si solo hay 1 fila)
+if filas == 1:
+    axes = np.array([axes])
+
+for i, idx_c in enumerate(indices_a_graficar):
+    p = indices_picos[idx_c]
+    tiempo_seg = p / fs
+    
+    # Extraer segmento
+    inicio, fin = max(0, p - 1000), min(len(emg_filtered), p + 1000)
+    segmento = emg_filtered[inicio:fin]
+
+    # ==========================================
+    # COLUMNA 1 (IZQUIERDA): PSD WELCH
+    # ==========================================
+    f_w, psd = welch(segmento, fs=fs, nperseg=1024)
+    psd_norm = psd / np.max(psd)
+
+    axes[i, 0].plot(f_w, psd_norm, color=colores[i % 3], lw=2)
+    axes[i, 0].fill_between(f_w, psd_norm, color=colores[i % 3], alpha=0.2)
+    
+    # Calcular Frecuencia Mediana de forma automática y segura
+    suma_acumulada = np.cumsum(psd)
+    idx_mediana = np.where(suma_acumulada >= suma_acumulada[-1] / 2)[0][0]
+    f_med = f_w[idx_mediana]
+    
+    axes[i, 0].axvline(x=f_med, color='black', linestyle='--', alpha=0.8, label=f'F. Med: {f_med:.1f} Hz')
+    axes[i, 0].legend(loc='upper right')
+    
+    # Titulo dinámico según la cantidad de contracciones reales
+    titulo_izq = nombres[i] if filas == 3 else f"Contracción {idx_c + 1}"
+    axes[i, 0].set_title(f"{titulo_izq} | PSD Welch", fontweight='bold')
+    axes[i, 0].set_ylabel('Potencia Norm.')
+    axes[i, 0].set_xlim(0, 300)
+    axes[i, 0].grid(True, alpha=0.3)
+
+    # ==========================================
+    # COLUMNA 2 (DERECHA): FFT
+    # ==========================================
+    N = len(segmento)
+    yf = np.fft.fft(segmento)
+    xf = np.fft.fftfreq(N, 1/fs)
+
+    xf_pos = xf[:N//2]
+    yf_abs = (2.0/N) * np.abs(yf[:N//2])
+    yf_norm = yf_abs / np.max(yf_abs) 
+
+    axes[i, 1].plot(xf_pos, yf_norm, color=colores[i % 3], lw=1.5)
+    axes[i, 1].set_title(f"Espectro FFT | Ocurrió en: {tiempo_seg:.1f} s", fontweight='bold')
+    axes[i, 1].set_ylabel('Amplitud Norm.')
+    axes[i, 1].set_xlim(0, 300)
+    axes[i, 1].grid(True, alpha=0.3)
+
+# Configuración de los ejes X solo en la parte inferior
+axes[-1, 0].set_xlabel('Frecuencia (Hz) <- Distribución de energía')
+axes[-1, 1].set_xlabel('Frecuencia (Hz) <- Componentes FFT')
+
+plt.tight_layout()
+plt.show()
+
+```
+### VISUALIZACIÓN FRECUENCIA 
+
+![FRECUENCIAS]()
 ## CONCLUSIONES
 
 
