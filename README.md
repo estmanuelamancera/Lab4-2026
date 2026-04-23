@@ -487,6 +487,17 @@ plt.show()
 ### VISUALIZACIÓN FRECUENCIA 
 
 ![FRECUENCIAS](https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen_2026-04-22_231406757.png?raw=true)
+
+### DISCUSIÓN
+
+Disminución de la Velocidad de Conducción: La acumulación de metabolitos (ácido láctico e iones de hidrógeno) genera una acidosis metabólica que reduce el pH del músculo. Esto hace que el potencial de acción se desplace más lento por la membrana muscular, "comprimiendo" el espectro hacia las frecuencias bajas (desplazamiento a la izquierda en la FFT).
+
+Falla de Fibras Rápidas (Tipo II): Al inicio y mitad del ejercicio (61.0 Hz), el cuerpo recluta fibras rápidas para mantener la fuerza. Sin embargo, estas son las primeras en agotarse. Al final del protocolo (C35), predominan las fibras lentas (Tipo I), que operan naturalmente a frecuencias menores.
+
+Sincronización de Unidades Motoras: Como mecanismo de defensa, el sistema nervioso sincroniza los disparos de las fibras restantes para intentar sostener la tensión. Aunque esto mantiene la fuerza momentáneamente, reduce la variabilidad de la señal y concentra la energía en las bandas de frecuencia más bajas.
+
+
+
 ## CONCLUSIONES
 
 
