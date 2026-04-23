@@ -336,7 +336,7 @@ plt.tight_layout()
 plt.show()
 
 ```
-![Segmentacion]()
+![Segmentacion](https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen_2026-04-22_230622625.png?raw=true)
 
 ## CONCLUSIONES
 
