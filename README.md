@@ -486,7 +486,7 @@ plt.show()
 ```
 ### VISUALIZACIÓN FRECUENCIA 
 
-![FRECUENCIAS]()
+![FRECUENCIAS](https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen_2026-04-22_231406757.png?raw=true)
 ## CONCLUSIONES
 
 
