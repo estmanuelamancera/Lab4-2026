@@ -495,6 +495,10 @@ Disminución de la Velocidad de Conducción: La acumulación de metabolitos (ác
 Falla de Fibras Rápidas (Tipo II): Al inicio y mitad del ejercicio (61.0 Hz), el cuerpo recluta fibras rápidas para mantener la fuerza. Sin embargo, estas son las primeras en agotarse. Al final del protocolo (C35), predominan las fibras lentas (Tipo I), que operan naturalmente a frecuencias menores.
 
 Sincronización de Unidades Motoras: Como mecanismo de defensa, el sistema nervioso sincroniza los disparos de las fibras restantes para intentar sostener la tensión. Aunque esto mantiene la fuerza momentáneamente, reduce la variabilidad de la señal y concentra la energía en las bandas de frecuencia más bajas.
+## PARTE C
+<img width="1343" height="1634" alt="image" src="https://github.com/user-attachments/assets/8ad25bbf-a159-4e57-a555-f863e71d9168" />
+
+<img width="1348" height="1682" alt="image" src="https://github.com/user-attachments/assets/d87c8ee2-a364-4eb4-a18f-d16ef58f3dd8" />
 
 
 
