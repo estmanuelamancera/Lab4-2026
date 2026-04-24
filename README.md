@@ -27,9 +27,15 @@ En esta primera etapa, se configuró el generador de señales biológicas en mod
 
 ### SEÑAL CAPTURADA 
 
-![]()
+![VISUALIZACION GENERAL](https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen_2026-04-23_223359567.png?raw=true)
 
-### SEGMENTACIÓN DE LA SEÑAL 
+### SEGMENTACIÓN POR CONTRACCIÓN
+
+![1]()
+
+![2]()
+
+
 
 ![SEGMENTACIÓN]()
 
