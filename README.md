@@ -553,6 +553,9 @@ Sincronización de Unidades Motoras: Como mecanismo de defensa, el sistema nervi
 En esta sección se realizó el análisis en el dominio de la frecuencia de la señal electromiográfica (EMG) mediante la aplicación de la Transformada Rápida de Fourier (FFT) a cada una de las contracciones musculares previamente detectadas. Para ello, la señal fue preprocesada mediante filtrado notch y pasabanda con el fin de eliminar ruido e interferencias, y posteriormente se segmentó utilizando la envolvente RMS para aislar los periodos de actividad muscular.
 
 A partir de estos segmentos, se calculó el espectro de amplitud (frecuencia vs. magnitud), lo que permitió caracterizar la distribución de energía en el dominio frecuencial. Este análisis se utilizó para comparar las primeras y últimas contracciones, evaluar posibles cambios asociados al esfuerzo sostenido y estudiar el comportamiento del pico espectral como indicador de la dinámica muscular.
+### Diagrama 
+<img width="652" height="1157" alt="image" src="https://github.com/user-attachments/assets/4a6cbc59-1c73-4cdf-b1fc-18eb8bf076e9" />
+
 ### Transformada Rápida de Fourier (FFT) a cada contracción 
 Para analizar el contenido frecuencial de la señal electromiográfica (EMG), se aplicó la Transformada Rápida de Fourier (FFT) a cada una de las contracciones musculares previamente segmentadas. Antes de realizar la transformada, cada segmento fue centrado eliminando su componente de corriente directa (DC) y se le aplicó una ventana de Hamming con el fin de reducir el efecto de fuga espectral.
 
