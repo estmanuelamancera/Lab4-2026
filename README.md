@@ -33,11 +33,11 @@ En esta primera etapa, se configuró el generador de señales biológicas en mod
 
 ![1](https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen_2026-04-23_223709301.png?raw=true)
 
-![2]()
+![2](https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen_2026-04-23_223837634.png?raw=true)
 
+### FRECUENCIAS DE MEDIA Y MEDIANA PARA CADA CONTRACCIÓN
 
-
-![SEGMENTACIÓN]()
+![Resultado media y mediana]()
 
 
 ### PARTE B
