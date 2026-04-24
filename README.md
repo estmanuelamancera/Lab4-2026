@@ -25,6 +25,10 @@ Emplear herramientas computacionales para el procesamiento, segmentación y aná
 
 En esta primera etapa, se configuró el generador de señales biológicas en modo electromiografía (EMG) con el objetivo de simular cinco contracciones musculares voluntarias. Este procedimiento permite reproducir de manera controlada la actividad eléctrica generada por el músculo durante contracciones sucesivas. Previo a esto se segmento la señal, se calculo la frecuencia media y mediana para cada contraccion para luego graficar y tabular los resultados obtenidos.
 
+### Diagrama
+<img width="947" height="2797" alt="image" src="https://github.com/user-attachments/assets/b4729bf2-509d-4758-bf51-a1a1dec394cc" />
+
+
 ### SEÑAL CAPTURADA 
 
 #### PROGRAMACIÓN
@@ -260,7 +264,11 @@ A lo largo de las cinco repeticiones analizadas, se observa una tendencia genera
 
 ### PARTE B
 
-En esta fase se realizó la adquisición de la señal electromiográfica (EMG) proveniente de un sujeto voluntario sano, colocando los electrodos sobre un grupo muscular específico (como el bíceps o antebrazo). Durante el registro, el sujeto efectuó contracciones repetidas hasta la aparición de la fatiga muscular, permitiendo analizar cómo varían las componentes frecuenciales de la señal en condiciones reales
+En esta fase se realizó la adquisición de la señal electromiográfica (EMG) proveniente de un sujeto voluntario sano, colocando los electrodos sobre un grupo muscular específico (como el bíceps o antebrazo). Durante el registro, el sujeto efectuó contracciones repetidas hasta la aparición de la fatiga muscular, permitiendo analizar cómo varían las componentes frecuenciales de la señal en condiciones reales.
+
+### Diagrama
+<img width="830" height="2965" alt="image" src="https://github.com/user-attachments/assets/8979324e-3b73-466b-b2ce-9c520635c890" />
+
 
 #### SEÑAL CAPTURADA
 
