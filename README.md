@@ -137,6 +137,8 @@ else:
 
 ```
 
+#### RESULTADO
+
 ![VISUALIZACION GENERAL](https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen_2026-04-23_223359567.png?raw=true)
 
 ### SEGMENTACIÓN POR CONTRACCIÓN
@@ -240,6 +242,7 @@ print(df_final)
 
 
 ```
+#### RESULTADO
 
 ![1](https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen_2026-04-23_223709301.png?raw=true)
 
