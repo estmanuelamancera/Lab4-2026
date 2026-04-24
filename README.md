@@ -254,8 +254,9 @@ print(df_final)
 
 ### ANALISIS VARIACION DE FRECUENCIAS
 
+![evolucion frecuencias](https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen_2026-04-23_230351791.png?raw=true)
 
-
+A lo largo de las cinco repeticiones analizadas, se observa una tendencia general ascendente en las métricas espectrales, donde la Frecuencia Media (MNF) incrementa de 25.7 Hz a 30.0 Hz y la Frecuencia Mediana (MDF) sube de 23.4 Hz a 25.5 Hz. Este comportamiento se caracteriza por una fase inicial de estabilidad durante las tres primeras contracciones, seguida de un salto notable a partir de la cuarta repetición que evidencia una aceleración significativa en la tasa de oscilación de la señal simulada hacia el final del registro. Finalmente, cabe destacar que la MNF se mantiene sistemáticamente por encima de la MDF en todo el trayecto, lo que sugiere la presencia de componentes de alta frecuencia que desplazan el promedio hacia arriba, aunque ambos indicadores comparten una trayectoria de crecimiento coordinada.
 
 ### PARTE B
 
