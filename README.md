@@ -46,7 +46,7 @@ import os
 ruta = "/content/drive/MyDrive/valentina emg real_20260327_141412.csv"
 
 if not os.path.exists(ruta):
-    print("❌ Archivo no encontrado. Revisa la ruta en Drive.")
+    print(" Archivo no encontrado. Revisa la ruta en Drive.")
 else:
     # Leemos datos, asumiendo columna 1 para señal, y saltando artefacto inicial
     df = pd.read_csv(ruta)
@@ -87,7 +87,7 @@ else:
             start = None
     
     segments = segments[:5]
-    print(f"✅ Segmentación profesional completada: {len(segments)} contracciones encontradas.")
+    print(f" Segmentación profesional completada: {len(segments)} contracciones encontradas.")
 
     # ==========================================
     # 3. GRÁFICA PROFESIONAL Y CLARA (Punto e)
@@ -146,6 +146,7 @@ else:
 ![VISUALIZACION GENERAL](https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen_2026-04-23_223359567.png?raw=true)
 
 ### SEGMENTACIÓN POR CONTRACCIÓN
+La segmentación de la señal EMG se realizó mediante un enfoque basado en la envolvente de la señal rectificada, con el objetivo de identificar de forma robusta los intervalos correspondientes a contracciones musculares. Inicialmente, la señal fue rectificada y posteriormente suavizada mediante una ventana móvil de 100 ms, lo que permitió obtener una representación de la energía instantánea de la señal. A partir de esta envolvente, se definió un umbral adaptativo calculado como el percentil 85, permitiendo discriminar entre actividad muscular significativa y ruido de fondo sin depender de valores fijos. Los segmentos activos se determinaron como aquellas regiones donde la envolvente supera dicho umbral, incorporando además un criterio de duración mínima de 100 ms para evitar falsas detecciones asociadas a fluctuaciones transitorias. Este procedimiento permitió identificar de manera consistente las contracciones más relevantes de la señal, proporcionando una base adecuada para el análisis espectral posterior.
 
 #### PROGRAMACIÓN
 
@@ -194,7 +195,7 @@ segments = segments[:5] # Tomamos las 5 reglamentarias
 # ==========================================
 # 3. GRÁFICAS INDIVIDUALES (Contracción por Contracción)
 # ==========================================
-print(f"📊 Generando análisis detallado para {len(segments)} contracciones...\n")
+print(f"Generando análisis detallado para {len(segments)} contracciones...\n")
 
 resultados = []
 
