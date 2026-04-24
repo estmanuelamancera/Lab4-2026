@@ -27,9 +27,219 @@ En esta primera etapa, se configuró el generador de señales biológicas en mod
 
 ### SEÑAL CAPTURADA 
 
+#### PROGRAMACIÓN
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+from scipy.signal import welch, butter, filtfilt
+import os
+
+# ==========================================
+# 1. CARGA Y FILTRADO ROBUSTO (Punto b)
+# ==========================================
+ruta = "/content/drive/MyDrive/valentina emg real_20260327_141412.csv"
+
+if not os.path.exists(ruta):
+    print("❌ Archivo no encontrado. Revisa la ruta en Drive.")
+else:
+    # Leemos datos, asumiendo columna 1 para señal, y saltando artefacto inicial
+    df = pd.read_csv(ruta)
+    emg_raw = df.iloc[:, 1].values[2000:] 
+    fs = 1000 
+
+    # Filtro Pasabanda (20-450 Hz) - Crucial para limpieza
+    nyq = 0.5 * fs
+    b, a = butter(4, [20/nyq, 450/nyq], btype='band')
+    emg_filt = filtfilt(b, a, emg_raw)
+    
+    # CENTRADO Y NORMALIZACIÓN ESTILO "GENERADOR"
+    # Esto asegura que la señal se vea grande y centrada, eliminando ruido de fondo
+    emg_filt = emg_filt - np.mean(emg_filt)
+    emg_norm = emg_filt / np.max(np.abs(emg_filt))
+    
+    t = np.arange(0, len(emg_norm)/fs, 1/fs)
+
+    # ==========================================
+    # 2. SEGMENTACIÓN INTELIGENTE (Punto c)
+    # ==========================================
+    # Envolvente suave para detección
+    emg_rect = np.abs(emg_norm)
+    window_size = int(0.1 * fs) # 100ms
+    emg_env = np.convolve(emg_rect, np.ones(window_size)/window_size, mode='same')
+    
+    # Umbral adaptativo basado en percentil para ignorar ruido de fondo
+    threshold = np.percentile(emg_env, 85) 
+    active = emg_env > threshold
+    
+    segments = []
+    start = None
+    for i in range(len(active)):
+        if active[i] and start is None: start = i
+        elif not active[i] and start is not None:
+            end = i
+            if (end - start) > (fs * 0.1): segments.append((start, end)) # Duración mínima 100ms
+            start = None
+    
+    segments = segments[:5]
+    print(f"✅ Segmentación profesional completada: {len(segments)} contracciones encontradas.")
+
+    # ==========================================
+    # 3. GRÁFICA PROFESIONAL Y CLARA (Punto e)
+    # ==========================================
+    plt.figure(figsize=(14, 7))
+    
+    # Dibujamos la señal principal en azul oscuro y fina
+    plt.plot(t, emg_norm, color='#1f77b4', linewidth=0.6, alpha=0.9, label="EMG Normalizado")
+    
+    # Dibujamos la envolvente en rojo para visualización del umbral (opcional)
+    # plt.plot(t, emg_env, color='red', linewidth=1, alpha=0.5, label="Envolvente")
+    
+    # Resaltamos las contracciones detectadas en color cian suave, como en tu referencia
+    for i, (s, e) in enumerate(segments):
+        plt.axvspan(s/fs, e/fs, color='#00ffff', alpha=0.25)
+        # Etiquetamos cada contracción
+        plt.text((s+e)/(2*fs), 1.1, f"C{i+1}", color='black', fontweight='bold', ha='center', fontsize=12)
+
+    # Configuraciones de estética para limpieza
+    plt.title("Visualización Detallada y Profesional de EMG", fontsize=16, fontweight='bold')
+    plt.xlabel("Tiempo (s)", fontsize=13)
+    plt.ylabel("Amplitud Normalizada", fontsize=13)
+    
+    # --- EL TRUCO DEL ZOOM ---
+    # Limita el eje X para mostrar solo el área de las contracciones, dándoles espacio
+    if len(segments) > 0:
+        plt.xlim(0, (segments[-1][1]/fs) + 0.5) 
+    else:
+        plt.xlim(0, 5) # Si no hay detección, muestra los primeros 5s
+        
+    plt.ylim(-1.3, 1.3) # Eje Y fijo para consistencia
+    plt.grid(True, linestyle='--', alpha=0.4)
+    plt.axhline(0, color='black', linewidth=1, alpha=0.7)
+    plt.tight_layout()
+    plt.show()
+
+    # ==========================================
+    # 4. CÁLCULO DE RESULTADOS (Punto d)
+    # ==========================================
+    res = []
+    for s, e in segments:
+        f, p = welch(emg_norm[s:e], fs=fs, nperseg=256)
+        mnf = np.sum(f * p) / np.sum(p)
+        mdf = f[np.where(np.cumsum(p) >= np.sum(p)/2)[0][0]]
+        res.append([mnf, mdf])
+    
+    df_res = pd.DataFrame(res, columns=["Frec. Media (Hz)", "Frec. Mediana (Hz)"], index=range(1, len(res)+1))
+    print("\n--- RESULTADOS ESPECTRALES FINALES ---")
+    print(df_res.to_string(index=False))
+
+
+```
+
 ![VISUALIZACION GENERAL](https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen_2026-04-23_223359567.png?raw=true)
 
 ### SEGMENTACIÓN POR CONTRACCIÓN
+
+#### PROGRAMACIÓN
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+from scipy.signal import welch, butter, filtfilt
+
+# ==========================================
+# 1. CARGA Y FILTRADO (Limpieza Total)
+# ==========================================
+ruta = "/content/drive/MyDrive/valentina emg real_20260327_141412.csv"
+df = pd.read_csv(ruta)
+emg_raw = df.iloc[:, 1].values[2000:] # Saltamos el error inicial
+fs = 1000 
+
+# Filtro Pasabanda para que la señal sea nítida
+nyq = 0.5 * fs
+b, a = butter(4, [20/nyq, 450/nyq], btype='band')
+emg_filt = filtfilt(b, a, emg_raw)
+
+# Normalización para que llegue a +/- 1.0 (Como el generador)
+emg_norm = (emg_filt - np.mean(emg_filt)) / np.max(np.abs(emg_filt))
+t = np.arange(0, len(emg_norm)/fs, 1/fs)
+
+# ==========================================
+# 2. SEGMENTACIÓN DE LAS 5 CONTRACCIONES
+# ==========================================
+emg_env = np.convolve(np.abs(emg_norm), np.ones(150)/150, mode='same')
+threshold = np.percentile(emg_env, 85) # Umbral para detectar picos claros
+active = emg_env > threshold
+
+segments = []
+start = None
+for i in range(len(active)):
+    if active[i] and start is None: start = i
+    elif not active[i] and start is not None:
+        end = i
+        if (end - start) > (fs * 0.2): # Solo segmentos de más de 0.2s
+            segments.append((start, end))
+        start = None
+
+segments = segments[:5] # Tomamos las 5 reglamentarias
+
+# ==========================================
+# 3. GRÁFICAS INDIVIDUALES (Contracción por Contracción)
+# ==========================================
+print(f"📊 Generando análisis detallado para {len(segments)} contracciones...\n")
+
+resultados = []
+
+for i, (s, e) in enumerate(segments):
+    # Extraer datos del segmento
+    seg_emg = emg_norm[s:e]
+    seg_t = t[s:e]
+    
+    # Calcular Frecuencias (Punto d)
+    f, Pxx = welch(seg_emg, fs=fs, nperseg=256)
+    mnf = np.sum(f * Pxx) / np.sum(Pxx)
+    mdf = f[np.where(np.cumsum(Pxx) >= np.sum(Pxx)/2)[0][0]]
+    resultados.append([mnf, mdf])
+
+    # --- CREAR GRÁFICA ---
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 4))
+    
+    # Lado Izquierdo: Tiempo (Zoom)
+    ax1.plot(seg_t, seg_emg, color='#1f77b4', linewidth=0.7)
+    ax1.axvspan(seg_t[0], seg_t[-1], color='#00ffff', alpha=0.2) # Color cian como pediste
+    ax1.set_title(f"CONTRACCIÓN {i+1} - Señal EMG", fontweight='bold')
+    ax1.set_ylabel("Amplitud (V)")
+    ax1.set_xlabel("Tiempo (s)")
+    ax1.set_ylim(-1.1, 1.1)
+    ax1.grid(True, alpha=0.3)
+
+    # Lado Derecho: Frecuencia (Espectro)
+    ax2.fill_between(f, Pxx, color='orange', alpha=0.2)
+    ax2.plot(f, Pxx, color='darkorange', linewidth=1)
+    ax2.axvline(mnf, color='red', linestyle='--', label=f'Media: {mnf:.2f} Hz')
+    ax2.axvline(mdf, color='green', linestyle=':', label=f'Mediana: {mdf:.2f} Hz')
+    ax2.set_title(f"Espectro de Potencia C{i+1}", fontweight='bold')
+    ax2.set_xlabel("Frecuencia (Hz)")
+    ax2.set_xlim(0, 450)
+    ax2.legend()
+    ax2.grid(True, alpha=0.3)
+
+    plt.tight_layout()
+    plt.show()
+
+# ==========================================
+# 4. TABLA RESUMEN FINAL
+# ==========================================
+df_final = pd.DataFrame(resultados, columns=["MNF (Hz)", "MDF (Hz)"], index=range(1, 6))
+print("\n" + "="*30)
+print("  TABLA RESUMEN DE RESULTADOS")
+print("="*30)
+print(df_final)
+
+
+```
 
 ![1](https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen_2026-04-23_223709301.png?raw=true)
 
