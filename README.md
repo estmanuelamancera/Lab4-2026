@@ -31,7 +31,7 @@ En esta primera etapa, se configuró el generador de señales biológicas en mod
 
 ### SEGMENTACIÓN POR CONTRACCIÓN
 
-![1]()
+![1](https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen_2026-04-23_223709301.png?raw=true)
 
 ![2]()
 
