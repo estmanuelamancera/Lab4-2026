@@ -581,3 +581,14 @@ El análisis del desplazamiento del pico espectral mostró un cambio total de 11
 
 En conclusión, el análisis espectral constituye una herramienta útil para evaluar la dinámica de la actividad muscular y detectar posibles cambios asociados a la fatiga. Sin embargo, su efectividad depende de la estabilidad del esfuerzo realizado, por lo que se recomienda, para futuros estudios, trabajar bajo condiciones experimentales más controladas que permitan evidenciar de manera más clara los efectos de la fatiga muscular.
 
+### PREGUNTAS PARA LA DISCUSIÓN 
+
+¿Cambian los valores de frecuencia media y mediana a medida que el músculo se acerca a la fatiga? ¿A qué podría atribuirse este cambio? 
+
+En condiciones ideales, cuando el músculo se aproxima a la fatiga, se espera una disminución progresiva de la frecuencia media y la frecuencia mediana de la señal EMG. Este comportamiento se debe principalmente a la reducción en la velocidad de conducción de las fibras musculares y a cambios en la sincronización y reclutamiento de las unidades motoras, lo que provoca una mayor concentración de energía en bajas frecuencias.
+
+¿Cómo justifica el uso de herramientas como la transformada de Fourier en escenarios como, por ejemplo, terapias de rehabilitación? 
+
+El uso de herramientas como la Transformada de Fourier en el análisis de señales EMG es fundamental en escenarios de rehabilitación, ya que permite estudiar la actividad muscular en el dominio de la frecuencia, proporcionando información que no es evidente en el dominio del tiempo. En terapias de rehabilitación, esta información puede ser utilizada para ajustar la intensidad de los ejercicios, prevenir la fatiga excesiva y optimizar los programas de entrenamiento. Además, permite realizar un seguimiento objetivo del progreso del paciente, facilitando la toma de decisiones clínicas basadas en datos cuantitativos.
+En este sentido, la transformada de Fourier se convierte en una herramienta clave para el análisis y la evaluación funcional del sistema neuromuscular en aplicaciones biomédicas.
+
