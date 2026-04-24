@@ -37,7 +37,11 @@ En esta primera etapa, se configuró el generador de señales biológicas en mod
 
 ### FRECUENCIAS DE MEDIA Y MEDIANA PARA CADA CONTRACCIÓN
 
-![Resultado media y mediana]()
+![Resultado media y mediana](https://github.com/estmanuelamancera/Lab4-2026/blob/main/imagen_2026-04-23_224050919.png?raw=true)
+
+### ANALISIS VARIACION DE FRECUENCIAS
+
+
 
 
 ### PARTE B
